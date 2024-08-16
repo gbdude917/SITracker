@@ -1,0 +1,43 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 50px 0;
+  font-size: 1.75rem;
+  font-family: "Julius Sans One";
+}
+
+.about {
+  font-size: 1.1rem;
+}
+
+.register {
+  margin: 25px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #219ebc; /* Button color */
+  color: #ffffff; /* Text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.button:hover {
+  background-color: #318094;
+}

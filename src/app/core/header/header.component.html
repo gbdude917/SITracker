@@ -1,0 +1,35 @@
+<nav class="nav">
+  <div class="contents">
+    <div class="logo-container">
+      <a routerLink="/" routerLinkActive="active">SI Tracker</a>
+    </div>
+    <ul class="link-container">
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+
+      <li>
+        <a routerLink="/game-sessions" routerLinkActive="active">
+          My Game Sessions
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/spirits" routerLinkActive="active">Spirits</a>
+      </li>
+
+      <li>
+        <a routerLink="/adversaries" routerLinkActive="active">Adversaries</a>
+      </li>
+
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
