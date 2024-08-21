@@ -3,14 +3,16 @@
     <div class="logo-container">
       <a routerLink="/" routerLinkActive="active">SI Tracker</a>
     </div>
+    @if (screenWidth >= 640) {
     <ul class="link-container">
       <li>
         <a
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
         >
+          Home
+        </a>
       </li>
 
       <li>
@@ -27,6 +29,37 @@
         <a routerLink="/adversaries" routerLinkActive="active">Adversaries</a>
       </li>
 
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+    </ul>
+    } @else {
+    <button class="burgerMenu" (click)="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+    }
+  </div>
+
+  <div class="backdrop" [class.close]="!isMenuOpen" (click)="closeMenu()"></div>
+
+  <div class="modal" [class.close]="!isMenuOpen" (click)="closeMenu()">
+    <ul class="modal__linkContainer" (click)="$event.stopPropagation()">
+      <li>
+        <a routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+      <li>
+        <a routerLink="/game-sessions" routerLinkActive="active">
+          My Game Sessions
+        </a>
+      </li>
+      <li>
+        <a routerLink="/spirits" routerLinkActive="active">Spirits</a>
+      </li>
+      <li>
+        <a routerLink="/adversaries" routerLinkActive="active">Adversaries</a>
+      </li>
       <li>
         <a routerLink="/login" routerLinkActive="active">Login</a>
       </li>
