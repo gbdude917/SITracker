@@ -6,19 +6,30 @@ body {
 }
 
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
+  height: 100hv;
+  width: 100%;
 }
 
 main {
+  padding-top: 10vh; /* Account for nav height */
+  height: auto;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10vh; /* Account for nav height */
-  min-height: 90vh;
 }
 
 @font-face {
   font-family: "Julius Sans One";
   src: url("/fonts/JuliusSansOne-Regular.ttf");
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --primary-color: #219ebc;
+  --secondary-color: #ffffff;
+  --tertiary-color: #8ecae6;
+  --active-color: #318094;
 }

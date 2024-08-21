@@ -1,1 +1,18 @@
-<p>spirits works!</p>
+<div class="container">
+  <div class="contentWrapper">
+    <div class="description">
+      <h1>List of Spirits</h1>
+      <p>These are the Spirits available in the game.</p>
+      <p>Click on the Spirit to learn more about them.</p>
+    </div>
+    <div class="spiritWrapper">
+      <!-- @for (spirit of spirits; track spirit.id) {
+        <app-spirit-card [spirit]="spirit" />
+      } -->
+      <app-spirit-card
+        *ngFor="let spirit of spirits$ | async; trackBy: trackById"
+        [spirit]="spirit"
+      />
+    </div>
+  </div>
+</div>

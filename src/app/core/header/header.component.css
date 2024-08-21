@@ -1,5 +1,5 @@
 .nav {
-  background-color: #219ebc;
+  background-color: var(--primary-color);
   width: 100vw;
   height: 10vh;
   font-weight: bold;
