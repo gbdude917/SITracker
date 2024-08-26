@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .title {
@@ -41,4 +42,15 @@
 .button:hover {
   /* background-color: #318094; */
   background-color: var(--active-color);
+}
+
+@media screen and (max-width: 415px) {
+  .title {
+    margin: 25px 0;
+    font-size: 1.3em;
+  }
+
+  .about {
+    font-size: 0.8em;
+  }
 }
