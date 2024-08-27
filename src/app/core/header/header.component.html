@@ -47,21 +47,40 @@
   <div class="modal" [class.close]="!isMenuOpen" (click)="closeMenu()">
     <ul class="modal__linkContainer" (click)="$event.stopPropagation()">
       <li>
-        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
       </li>
       <li>
-        <a routerLink="/game-sessions" routerLinkActive="active">
+        <a
+          routerLink="/game-sessions"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
           My Game Sessions
         </a>
       </li>
       <li>
-        <a routerLink="/spirits" routerLinkActive="active">Spirits</a>
+        <a routerLink="/spirits" routerLinkActive="active" (click)="closeMenu()"
+          >Spirits</a
+        >
       </li>
       <li>
-        <a routerLink="/adversaries" routerLinkActive="active">Adversaries</a>
+        <a
+          routerLink="/adversaries"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          >Adversaries</a
+        >
       </li>
       <li>
-        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/login" routerLinkActive="active" (click)="closeMenu()"
+          >Login</a
+        >
       </li>
     </ul>
   </div>

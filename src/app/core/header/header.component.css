@@ -37,7 +37,8 @@
   margin: 0;
 }
 
-.link-container a.active {
+.link-container a.active,
+.modal__linkContainer a.active {
   text-decoration: underline;
 }
 
