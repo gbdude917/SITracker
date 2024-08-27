@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Spirit } from '../../spirit.module';
 
 @Component({
   selector: 'app-spirit-card',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './spirit-card.component.html',
   styleUrl: './spirit-card.component.css',
 })

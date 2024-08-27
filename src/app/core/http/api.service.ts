@@ -12,7 +12,20 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   /** SPIRITS **/
-  getSpirits(): Observable<any[]> {
+  getSpirits(): Observable<Spirit[]> {
     return this.http.get<Spirit[]>(`${this.API_URL}/spirits`);
+  }
+
+  getSpiritById(id: number): Observable<Spirit> {
+    return this.http.get<Spirit>(`${this.API_URL}/spirits/${id}`);
+  }
+
+  getSpiritByPathname(name: string): Observable<Spirit> {
+    // Convert spaces to underscores
+    const pathname = name.replaceAll(' ', '_');
+
+    return this.http.get<Spirit>(
+      `${this.API_URL}/spirits/pathname/${pathname}`
+    );
   }
 }

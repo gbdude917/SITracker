@@ -1,0 +1,55 @@
+<div class="container">
+  @if(spirit) {
+  <div class="wrapper">
+    <div class="header">
+      <h1>{{ spirit.name }}</h1>
+    </div>
+
+    <div class="content">
+      <section class="section__intro">
+        <div class="imageWrapper">
+          <div class="imageContainer">
+            <img
+              class="spiritImage"
+              [src]="spirit.image"
+              alt="{{ spirit.name }}"
+            />
+          </div>
+        </div>
+
+        <!-- TODO: Add text to database about playstyle, setup, and complexity -->
+        <div class="textContainer">
+          <div class="playstyle_subsection">
+            <h2>PLAY STYLE</h2>
+            <p>
+              Virtually all offense to start with: without a more defensive
+              teammate, Blight may become a problem. Excellent at destroying
+              buildings, less good at containing Explorers. Using Thundering
+              Destruction tends to be a burst affair: a turn or two of position
+              and build up Energy, followed by a really big turn. Starting
+              Powers are extremely focused on Air and Fire: good for Thundering
+              Destruction, bad for Major Power versatility.
+            </p>
+          </div>
+
+          <div class="subInfo">
+            <div class="intro__subsection marginRight">
+              <h2>SETUP</h2>
+              <p>
+                Put 2 Presence on your starting board in the highest-numbered
+                Sands.
+              </p>
+            </div>
+            <div class="intro__subsection">
+              <h2>COMPLEXITY</h2>
+              <p>LOW</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  } @else {
+  <div class="wrapper loading"><p>Loading...</p></div>
+  }
+</div>

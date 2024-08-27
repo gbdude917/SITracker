@@ -1,0 +1,113 @@
+.container {
+  padding: 0 25px;
+  width: 100vw;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading p {
+  align-items: center;
+  text-align: center;
+}
+
+.header {
+  font-size: 0.9rem;
+  margin: 25px 0;
+}
+
+.section__intro {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.imageWrapper {
+  height: 100%;
+  max-width: 30%;
+}
+
+.imageContainer {
+  height: 70%;
+  width: 100%;
+}
+
+.spiritImage {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.textContainer {
+  max-width: 65%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.playstyle_subsection {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.subInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.intro__subsection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.marginRight {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0;
+    width: 100vw;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 0 5px;
+    align-items: center;
+  }
+
+  .content,
+  .section__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .imageWrapper {
+    max-width: 80%;
+  }
+
+  .textContainer {
+    padding: 0;
+  }
+
+  .textContainer {
+    width: 100%;
+    margin: 25px 0;
+  }
+}
