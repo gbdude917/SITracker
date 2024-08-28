@@ -6,13 +6,9 @@
       <p>Click on the Spirit to learn more about them.</p>
     </div>
     <div class="spiritWrapper">
-      <!-- @for (spirit of spirits; track spirit.id) {
-        <app-spirit-card [spirit]="spirit" />
-      } -->
-      <app-spirit-card
-        *ngFor="let spirit of spirits$ | async; trackBy: trackById"
-        [spirit]="spirit"
-      />
+      @for (spirit of spirits; track spirit.id) {
+      <app-spirit-card [spirit]="spirit" />
+      }
     </div>
   </div>
 </div>

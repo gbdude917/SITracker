@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../../core/http/api.service';
 import { Observable } from 'rxjs';
@@ -12,10 +12,16 @@ import { Spirit } from '../../spirit.module';
   templateUrl: './spirits.component.html',
   styleUrl: './spirits.component.css',
 })
-export class SpiritsComponent {
-  spirits$: Observable<Spirit[]> = this.api.getSpirits();
+export class SpiritsComponent implements OnInit {
+  spirits!: Spirit[];
 
-  constructor(private api: ApiService) {}
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.apiService.getSpirits().subscribe((spirits) => {
+      this.spirits = spirits;
+    });
+  }
 
   trackById(index: number, spirit: Spirit): string {
     return spirit.id;
