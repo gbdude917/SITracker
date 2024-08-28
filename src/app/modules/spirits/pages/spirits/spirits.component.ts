@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../../core/http/api.service';
-import { Observable } from 'rxjs';
 import { SpiritCardComponent } from '../../components/spirit-card/spirit-card.component';
 import { Spirit } from '../../spirit.module';
 
@@ -21,9 +20,5 @@ export class SpiritsComponent implements OnInit {
     this.apiService.getSpirits().subscribe((spirits) => {
       this.spirits = spirits;
     });
-  }
-
-  trackById(index: number, spirit: Spirit): string {
-    return spirit.id;
   }
 }

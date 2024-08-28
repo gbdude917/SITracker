@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AdversaryCardComponent } from '../../components/adversary-card/adversary-card.component';
 import { Adversary } from '../../adversary.module';
 import { ApiService } from '../../../../core/http/api.service';
