@@ -17,5 +17,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'spirits/:name', component: SpiritDetailsComponent },
-  { path: 'spirits/:name', component: AdversaryDetailsComponent },
+  { path: 'adversaries/:name', component: AdversaryDetailsComponent },
 ];

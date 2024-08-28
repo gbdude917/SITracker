@@ -1,1 +1,24 @@
-<p>adversary-details works!</p>
+<div class="container">
+  @if(adversary) {
+  <div class="wrapper">
+    <div class="header">
+      <h1>{{ adversary.name }}</h1>
+    </div>
+
+    <div class="content">
+      <section class="section__intro">
+        <div class="imageContainer">
+          <!-- TODO: Add an actual image for the adversary -->
+          <img
+            class="adversaryImage"
+            [src]="adversary.flag"
+            alt="{{ adversary.name }}"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+  } @else {
+  <div class="wrapper loading"><p>Loading...</p></div>
+  }
+</div>
