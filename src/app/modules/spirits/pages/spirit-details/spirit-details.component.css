@@ -1,5 +1,6 @@
 .container {
   padding: 0 25px;
+  min-height: 90vh;
   width: 100vw;
   font-family: sans-serif;
 }
