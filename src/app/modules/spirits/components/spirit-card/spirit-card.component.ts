@@ -25,8 +25,4 @@ export class SpiritCardComponent implements OnInit {
     this.pathname = pathname;
     this.image = image;
   }
-
-  getLink(): string {
-    return `/spirits/${this.pathname}`;
-  }
 }
