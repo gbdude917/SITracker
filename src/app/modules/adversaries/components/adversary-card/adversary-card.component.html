@@ -1,0 +1,16 @@
+<a [routerLink]="['/adversaries', name]" class="container">
+  <div class="wrapper">
+    <div class="imageContainer">
+      <img
+        class="image"
+        [src]="flag"
+        alt="{{ name }}"
+        height="300"
+        width="300"
+      />
+    </div>
+    <div class="textContainer">
+      <h2>{{ name }}</h2>
+    </div>
+  </div>
+</a>

@@ -1,1 +1,14 @@
-<p>adversaries works!</p>
+<div class="container">
+  <div class="contentWrapper">
+    <div class="description">
+      <h1>List of Adversaries</h1>
+      <p>These are the Adversaries available in the game.</p>
+      <p>Click on the Adversary to learn more about them.</p>
+    </div>
+    <div class="adversaryWrapper">
+      @for (adversary of adversaries; track adversary.id) {
+      <app-adversary-card [adversary]="adversary" />
+      }
+    </div>
+  </div>
+</div>

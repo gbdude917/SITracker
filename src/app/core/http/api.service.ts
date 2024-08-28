@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Adversary } from '../../modules/adversaries/adversary.module';
 import { Spirit } from '../../modules/spirits/spirit.module';
 
 @Injectable({
@@ -26,6 +27,24 @@ export class ApiService {
 
     return this.http.get<Spirit>(
       `${this.API_URL}/spirits/pathname/${pathname}`
+    );
+  }
+
+  /** ADVERSARIES **/
+  getAdversaries(): Observable<Adversary[]> {
+    return this.http.get<Adversary[]>(`${this.API_URL}/adversaries`);
+  }
+
+  getAdversaryById(id: number): Observable<Adversary> {
+    return this.http.get<Adversary>(`${this.API_URL}/adversaries/${id}`);
+  }
+
+  getAdversaryByPathname(name: string): Observable<Adversary> {
+    // Convert spaces to underscores
+    const pathname = name.replaceAll(' ', '_');
+
+    return this.http.get<Adversary>(
+      `${this.API_URL}/adversaries/pathname/${pathname}`
     );
   }
 }

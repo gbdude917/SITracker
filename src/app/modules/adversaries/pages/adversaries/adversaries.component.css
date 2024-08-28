@@ -1,0 +1,51 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  width: 90%;
+  font-family: "Linux Libertine", "Georgia", "Times", serif;
+  margin: 25px 0;
+}
+
+.description h1,
+.description p {
+  margin-bottom: 15px;
+}
+
+.adversaryWrapper {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 620px) {
+  .contentWrapper {
+    width: 100vw;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .adversaryWrapper {
+    margin: 15px 0;
+    width: 100%;
+  }
+}

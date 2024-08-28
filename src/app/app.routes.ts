@@ -7,6 +7,7 @@ import { GameSessionsComponent } from './modules/game-sessions/pages/game-sessio
 import { LoginComponent } from './modules/login/pages/login/login.component';
 import { AboutComponent } from './modules/about/pages/about/about.component';
 import { SpiritDetailsComponent } from './modules/spirits/pages/spirit-details/spirit-details.component';
+import { AdversaryDetailsComponent } from './modules/adversaries/pages/adversary-details/adversary-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,4 +17,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'spirits/:name', component: SpiritDetailsComponent },
+  { path: 'spirits/:name', component: AdversaryDetailsComponent },
 ];
