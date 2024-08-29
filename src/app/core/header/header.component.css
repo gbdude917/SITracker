@@ -11,6 +11,16 @@
   text-decoration: none;
 }
 
+.nav button {
+  border: none;
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .contents {
   height: 100%;
   display: flex;

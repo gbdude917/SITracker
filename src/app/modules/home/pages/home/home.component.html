@@ -10,7 +10,11 @@
     </div>
 
     <div class="register">
-      <a routerLink="/login" class="button"> Register / Login </a>
+      @if(getIsLoggedIn()) {
+      <a routerLink="/game-sessions" class="button">My Game Sessions</a>
+      } @else {
+      <a routerLink="/login" class="button">Register / Login</a>
+      }
     </div>
   </div>
 </div>

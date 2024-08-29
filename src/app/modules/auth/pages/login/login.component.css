@@ -1,0 +1,72 @@
+.container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 400px;
+  min-width: 400px;
+  border: grey solid 0.5px;
+  border-radius: 15px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+}
+
+.formContainer h2 {
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.username,
+.password {
+  height: 35px;
+  padding: 0.5px 5px;
+  margin: 15px 0;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.loginBtn {
+  width: 60px;
+  height: 30px;
+  margin: 15px 0;
+  color: white;
+  background-color: #219ebc;
+  border-style: none;
+  border-radius: 3px;
+}
+
+.loginBtn:hover {
+  cursor: pointer;
+  background-color: #1b86a1;
+}
+
+.form a {
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 425px) {
+  .wrapper {
+    width: 95vw;
+    min-width: 0;
+  }
+}
