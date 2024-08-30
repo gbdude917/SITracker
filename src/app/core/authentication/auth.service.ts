@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Jwt } from '../core.module';
 
 import { jwtDecode } from 'jwt-decode';
+import { LoginDto } from '../../modules/auth/auth.module';
 
 @Injectable({
   providedIn: 'root',
@@ -14,16 +15,18 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
-    return this.http
-      .post<Jwt>(`${this.apiUrl}/login`, { username, password })
-      .pipe(
-        map((response) => {
-          // JWT is stored in localstorage
-          localStorage.setItem('authToken', response.token);
-          return response;
-        })
-      );
+  // register(email: string, username: string, password: string): Observable<any> {
+  //   return this.http.post
+  // }
+
+  login(loginDto: LoginDto): Observable<any> {
+    return this.http.post<Jwt>(`${this.apiUrl}/login`, loginDto).pipe(
+      map((response) => {
+        // JWT is stored in localstorage
+        localStorage.setItem('authToken', response.token);
+        return response;
+      })
+    );
   }
 
   logout(): void {

@@ -34,7 +34,6 @@ export class HeaderComponent {
   }
 
   getIsLoggedIn(): boolean {
-    console.log('getIsloggedIn(): ' + this.authService.isLoggedIn());
     return this.authService.isLoggedIn();
   }
 

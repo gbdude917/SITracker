@@ -3,14 +3,14 @@
     <div class="formContainer">
       <h2>Login</h2>
       <!-- TODO: Place action endpoint -->
-      <form class="form" (ngSubmit)="onSubmit()">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input
           type="text"
           class="username"
           id="username"
           name="username"
           placeholder="Username"
-          [(ngModel)]="username"
+          formControlName="username"
           required
         />
         <input
@@ -19,7 +19,7 @@
           id="password"
           name="password"
           placeholder="Password"
-          [(ngModel)]="password"
+          formControlName="password"
           required
         />
         <div class="checkboxContainer">
