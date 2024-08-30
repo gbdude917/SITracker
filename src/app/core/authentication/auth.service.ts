@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Jwt } from '../core.module';
 
 import { jwtDecode } from 'jwt-decode';
-import { LoginDto } from '../../modules/auth/auth.module';
+import { LoginDto, RegisterDto } from '../../modules/auth/auth.module';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +15,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // register(email: string, username: string, password: string): Observable<any> {
-  //   return this.http.post
-  // }
+  register(registerDto: RegisterDto): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, registerDto);
+  }
 
   login(loginDto: LoginDto): Observable<any> {
     return this.http.post<Jwt>(`${this.apiUrl}/login`, loginDto).pipe(

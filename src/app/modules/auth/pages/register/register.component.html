@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="container">
+  <div class="wrapper">
+    <div class="formContainer">
+      <h2>Register</h2>
+      <!-- TODO: Place action endpoint -->
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input
+          type="email"
+          class="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <input
+          type="text"
+          class="username"
+          id="username"
+          name="username"
+          placeholder="Username"
+          formControlName="username"
+          required
+        />
+        <input
+          type="password"
+          class="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <input
+          type="password"
+          class="confirmPassword"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+          required
+        />
+
+        <input type="submit" class="registerBtn" value="Register" />
+        <a routerLink="/login" routerLinkActive="active"
+          >Have an account? Login instead.</a
+        >
+      </form>
+    </div>
+  </div>
+</div>

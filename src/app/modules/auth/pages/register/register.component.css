@@ -1,0 +1,79 @@
+.container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: auto;
+  min-width: 400px;
+  border: grey solid 0.5px;
+  border-radius: 15px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+}
+
+.formContainer h2 {
+  font-size: 1.5rem;
+  margin: 0 0 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email,
+.username,
+.password,
+.confirmPassword {
+  height: 35px;
+  padding: 0.5px 5px;
+  margin: 15px 0;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.registerBtn {
+  width: 60px;
+  height: 30px;
+  margin: 15px 0;
+  color: white;
+  background-color: var(--primary-color);
+  border-style: none;
+  border-radius: 3px;
+}
+
+.registerBtn:hover {
+  cursor: pointer;
+  background-color: var(--active-color);
+}
+
+.form a {
+  margin: 5px 0;
+}
+
+.form a:visited {
+  color: var(--tertiary-color);
+}
+
+@media screen and (max-width: 425px) {
+  .wrapper {
+    width: 95vw;
+    min-width: 0;
+  }
+}
