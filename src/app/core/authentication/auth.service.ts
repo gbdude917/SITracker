@@ -19,11 +19,12 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/register`, registerDto);
   }
 
-  login(loginDto: LoginDto): Observable<any> {
+  login(loginDto: LoginDto, rememberMe: boolean): Observable<any> {
     return this.http.post<Jwt>(`${this.apiUrl}/login`, loginDto).pipe(
       map((response) => {
-        // JWT is stored in localstorage
-        localStorage.setItem('authToken', response.token);
+        // JWT is stored in localstorage if user checks 'Remember Me'
+        const storage = rememberMe ? localStorage : sessionStorage;
+        storage.setItem('authToken', response.token);
         return response;
       })
     );
@@ -31,11 +32,13 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
   }
 
   isLoggedIn(): boolean {
     // Check expiry of the JWT
-    const token = localStorage.getItem('authToken');
+    const token =
+      localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
 
     if (!token) return false;
 

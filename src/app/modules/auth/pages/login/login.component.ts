@@ -26,6 +26,7 @@ export class LoginComponent {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
+      rememberMe: [false],
     });
   }
 
@@ -33,17 +34,24 @@ export class LoginComponent {
     console.log('Logging in...');
     console.log(this.loginForm.value);
 
-    this.authService.login(this.loginForm.value).subscribe({
-      next: (response) => {
-        console.log('Login successful!');
+    const loginDto = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
+    };
 
-        this.router.navigate(['/game-sessions']);
-      },
-      error: (error) => {
-        console.log('Error logging in: ' + error.error);
+    this.authService
+      .login(loginDto, this.loginForm.value.rememberMe)
+      .subscribe({
+        next: (response) => {
+          console.log('Login successful!');
 
-        // TODO: Output an error loggin in on screen
-      },
-    });
+          this.router.navigate(['/game-sessions']);
+        },
+        error: (error) => {
+          console.log('Error logging in: ' + error.error);
+
+          // TODO: Output an error loggin in on screen
+        },
+      });
   }
 }
