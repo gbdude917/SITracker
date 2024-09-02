@@ -8,17 +8,19 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../../../core/authentication/auth.service';
 import { Router, RouterLink } from '@angular/router';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
+import { noWhiteSpaceValidator } from '../../../../shared/directives/no-whitespace-validator.directive';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, ErrorMessageComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  registrationFailed: boolean;
+  errorMessage?: string;
 
   constructor(
     private authService: AuthService,
@@ -27,15 +29,13 @@ export class RegisterComponent {
   ) {
     this.registerForm = this.formBuilder.group(
       {
-        username: ['', [Validators.required]],
+        username: ['', [Validators.required, noWhiteSpaceValidator]],
         email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
+        password: ['', [Validators.required, noWhiteSpaceValidator]],
         confirmPassword: ['', [Validators.required]],
       },
       { validator: this.passwordMatchValidator }
     );
-
-    this.registrationFailed = false;
   }
 
   /**
@@ -80,37 +80,44 @@ export class RegisterComponent {
           this.registerForm.reset();
         },
         error: (error) => {
-          this.registrationFailed = true;
-
-          // TODO: Use registrationFailed to display some error to user
+          this.errorMessage = error.error.message;
         },
       });
     } else {
       console.log('Could not register your account!');
 
+      const userControl = this.registerForm.get('username');
       const emailControl = this.registerForm.get('email');
       const passwordControl = this.registerForm.get('password');
       const confirmPasswordControl = this.registerForm.get('confirmPassword');
 
+      if (userControl?.hasError('required')) {
+        this.errorMessage = 'Username is required.';
+      } else if (userControl?.hasError('whitespace')) {
+        this.errorMessage = 'Username cannot have whitespaces.';
+      }
+
       if (emailControl?.hasError('required')) {
-        console.log('Email is required.');
+        this.errorMessage = 'Email is required.';
       } else if (emailControl?.hasError('email')) {
-        console.log('Invalid email format.');
+        this.errorMessage = 'Invalid email format.';
       }
 
       if (passwordControl?.hasError('required')) {
-        console.log('Password is required.');
+        this.errorMessage = 'Password is required.';
       } else if (passwordControl?.hasError('minlength')) {
-        console.log('Password must be at least 6 characters long.');
+        this.errorMessage = 'Password must be at least 6 characters long.';
+      } else if (passwordControl?.hasError('whitespace')) {
+        this.errorMessage = 'Password cannot have whitespaces.';
       }
 
       if (confirmPasswordControl?.hasError('required')) {
-        console.log('Confirm Password is required.');
+        this.errorMessage = 'Confirm Password is required.';
       }
 
       // Check for custom password mismatch error
       if (this.registerForm.hasError('passwordMismatch')) {
-        console.log('Passwords do not match.');
+        this.errorMessage = 'Passwords do not match.';
       }
     }
   }
