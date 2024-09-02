@@ -7,16 +7,18 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../../core/authentication/auth.service';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, ErrorMessageComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage?: string;
 
   constructor(
     private authService: AuthService,
@@ -32,7 +34,6 @@ export class LoginComponent {
 
   onSubmit(): void {
     console.log('Logging in...');
-    console.log(this.loginForm.value);
 
     const loginDto = {
       username: this.loginForm.value.username,
@@ -48,10 +49,17 @@ export class LoginComponent {
           this.router.navigate(['/game-sessions']);
         },
         error: (error) => {
-          console.log('Error logging in: ' + error.error);
-
-          // TODO: Output an error loggin in on screen
+          this.handleError(error);
         },
       });
+  }
+
+  handleError(error: any): void {
+    if (error.status === 400) {
+      this.errorMessage = 'Username or password is incorrect.';
+    } else {
+      this.errorMessage =
+        'An unexpected error has occurred. Please try again later.';
+    }
   }
 }

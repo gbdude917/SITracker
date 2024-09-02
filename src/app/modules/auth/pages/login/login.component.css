@@ -2,6 +2,7 @@
   height: 80vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -27,7 +28,7 @@
 
 .formContainer h2 {
   font-size: 1.5rem;
-  margin: 0 0 15px;
+  margin: 15px 0 15px;
 }
 
 .form {

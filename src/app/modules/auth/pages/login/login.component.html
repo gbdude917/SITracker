@@ -1,8 +1,9 @@
 <div class="container">
+  <app-error-message [message]="errorMessage"></app-error-message>
+
   <div class="wrapper">
     <div class="formContainer">
       <h2>Login</h2>
-      <!-- TODO: Place action endpoint -->
       <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input
           type="text"
