@@ -2,10 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Jwt } from '../core.module';
-
-import { jwtDecode } from 'jwt-decode';
-import { LoginDto, RegisterDto } from '../../modules/auth/auth.module';
+import { Jwt } from '../../core.module';
+import { LoginDto, RegisterDto } from '../../../modules/auth/auth.module';
+import { JwtService } from '../jwt/jwt.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +12,7 @@ import { LoginDto, RegisterDto } from '../../modules/auth/auth.module';
 export class AuthService {
   private apiUrl = 'https://localhost:7092/api/v1/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwt: JwtService) {}
 
   register(registerDto: RegisterDto): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, registerDto);
@@ -37,13 +36,11 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     // Check expiry of the JWT
-    const token =
-      localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-
-    if (!token) return false;
-
     // Use jwt-decode library to decode the jwt and retrieve the expiry date
-    const decodedToken = jwtDecode(token);
+    const decodedToken = this.jwt.getDecodedToken();
+
+    if (decodedToken === null) return false;
+
     const expirationDate = new Date(decodedToken.exp! * 1000);
     const currentDate = new Date();
 
