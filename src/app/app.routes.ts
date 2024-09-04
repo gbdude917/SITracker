@@ -21,7 +21,11 @@ export const routes: Routes = [
     component: GameSessionsComponent,
     canActivate: [authGuard],
   },
-  { path: 'profile', component: ProfilePageComponent },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
+    canActivate: [authGuard],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'spirits/:name', component: SpiritDetailsComponent },

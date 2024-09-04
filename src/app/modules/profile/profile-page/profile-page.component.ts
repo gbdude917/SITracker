@@ -53,4 +53,11 @@ export class ProfilePageComponent implements OnInit {
     // TODO: Handle the various submit from the 3 different forms
     console.log(type);
   }
+
+  onLogout(): void {
+    this.authService.logout();
+
+    // Route back to home page
+    this.router.navigate(['/']);
+  }
 }
