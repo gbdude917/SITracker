@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Adversary } from '../../modules/adversaries/adversary.module';
 import { Spirit } from '../../modules/spirits/spirit.module';
+import {
+  UpdatePasswordDto,
+  UpdateUsernameDto,
+  User,
+} from '../../modules/profile/profile.module';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +50,31 @@ export class ApiService {
 
     return this.http.get<Adversary>(
       `${this.API_URL}/adversaries/pathname/${pathname}`
+    );
+  }
+
+  /** USERS **/
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.API_URL}/users/${id}`);
+  }
+
+  updateUsername(
+    id: number,
+    updateUsernameDto: UpdateUsernameDto
+  ): Observable<User> {
+    return this.http.patch<User>(
+      `${this.API_URL}/users/update-username/${id}`,
+      updateUsernameDto
+    );
+  }
+
+  updatePassword(
+    id: number,
+    updatePasswordDto: UpdatePasswordDto
+  ): Observable<any> {
+    return this.http.patch<any>(
+      `${this.API_URL}/users/update-username/${id}`,
+      updatePasswordDto
     );
   }
 }
