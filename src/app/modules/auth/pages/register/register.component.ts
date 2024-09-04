@@ -6,7 +6,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
-import { AuthService } from '../../../../core/authentication/auth.service';
+import { AuthService } from '../../../../core/authentication/auth/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 import { noWhiteSpaceValidator } from '../../../../shared/directives/no-whitespace-validator.directive';

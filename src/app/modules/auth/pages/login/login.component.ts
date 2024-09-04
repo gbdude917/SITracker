@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../../core/authentication/auth.service';
+import { AuthService } from '../../../../core/authentication/auth/auth.service';
 import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 
 @Component({

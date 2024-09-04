@@ -9,7 +9,8 @@ import { AboutComponent } from './modules/about/pages/about/about.component';
 import { SpiritDetailsComponent } from './modules/spirits/pages/spirit-details/spirit-details.component';
 import { AdversaryDetailsComponent } from './modules/adversaries/pages/adversary-details/adversary-details.component';
 import { RegisterComponent } from './modules/auth/pages/register/register.component';
-import { authGuard } from './core/authentication/auth.guard';
+import { authGuard } from './core/authentication/auth/auth.guard';
+import { ProfilePageComponent } from './modules/profile/profile-page/profile-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     component: GameSessionsComponent,
     canActivate: [authGuard],
   },
+  { path: 'profile', component: ProfilePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'spirits/:name', component: SpiritDetailsComponent },

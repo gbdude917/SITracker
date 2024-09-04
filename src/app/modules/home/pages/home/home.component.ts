@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../../../core/authentication/auth.service';
+import { AuthService } from '../../../../core/authentication/auth/auth.service';
 
 @Component({
   selector: 'app-home',

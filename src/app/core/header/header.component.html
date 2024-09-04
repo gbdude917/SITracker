@@ -31,7 +31,7 @@
 
       <li>
         @if(getIsLoggedIn()) {
-        <button (click)="onLogout()">Logout</button>
+        <a routerLink="/profile" routerLinkActive="active">Profile</a>
         } @else {
         <a routerLink="/login" routerLinkActive="active">Login</a>
         }
@@ -83,7 +83,9 @@
       </li>
       <li>
         @if(getIsLoggedIn()) {
-        <button (click)="onLogout()">Logout</button>
+        <a routerLink="/profile" routerLinkActive="active" (click)="closeMenu()"
+          >Profile</a
+        >
         } @else {
         <a routerLink="/login" routerLinkActive="active" (click)="closeMenu()"
           >Login</a
