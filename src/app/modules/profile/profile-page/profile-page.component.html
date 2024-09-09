@@ -1,97 +1,99 @@
-<div class="userContainer">
-  <h2>Welcome, {{ username }}!</h2>
+<div class="container">
+  <div class="wrapper">
+    <h2>Welcome, {{ username }}!</h2>
 
-  <div class="contents">
-    <div class="form__updateUsername">
-      <!-- Update Username -->
-      <h3>Update Username</h3>
-      <form
-        class="form"
-        [formGroup]="updateUsernameForm"
-        (ngSubmit)="onSubmit('username')"
-      >
-        <label for="updateUsername">New Username</label>
-        <input
-          type="text"
-          class="updateUsername"
-          id="updateUsername"
-          name="updateUsername"
-          placeholder="New Username"
-          formControlName="newUsername"
-          required
-        />
-        <input type="submit" class="submitBtn" value="Update Username" />
-      </form>
-    </div>
-
-    <!-- Update Password -->
-    <div class="form__updatePassword">
-      <h3>Update Password</h3>
-      <form
-        class="form"
-        [formGroup]="updatePasswordForm"
-        (ngSubmit)="onSubmit('password')"
-      >
-        <label for="oldPassword">Old Password</label>
-        <input
-          type="password"
-          class="oldPassword"
-          id="oldPassword"
-          name="oldPassword"
-          placeholder="Old Password"
-          formControlName="oldPassword"
-          required
-        />
-        <label for="newPassword">New Password</label>
-        <input
-          type="password"
-          class="newPassword"
-          id="newPassword"
-          name="newPassword"
-          placeholder="New Password"
-          formControlName="newPassword"
-          required
-        />
-        <label for="confirmPassword">Confirm New Password</label>
-        <input
-          type="password"
-          class="confirmPassword"
-          id="confirmPassword"
-          name="confirmPassword"
-          placeholder="Confirm New Password"
-          formControlName="confirmPassword"
-          required
-        />
-        <input type="submit" class="submitBtn" value="Update Password" />
-      </form>
-    </div>
-
-    <!-- Delete User -->
-    <div class="form__deleteUsername">
-      <h3>Delete Account</h3>
-      <form
-        class="form"
-        [formGroup]="deleteUserForm"
-        (ngSubmit)="onSubmit('delete')"
-      >
-        <label for="username"
-          >Confirm account deletion by typing your username</label
+    <div class="contents">
+      <div class="form-group">
+        <!-- Update Username -->
+        <h3>Update Username</h3>
+        <form
+          class="form"
+          [formGroup]="updateUsernameForm"
+          (ngSubmit)="onSubmit('username')"
         >
-        <input
-          type="text"
-          class="username"
-          id="username"
-          name="username"
-          placeholder="Confirm Deletion"
-          formControlName="username"
-          required
-        />
-        <input type="submit" class="submitBtn" value="Delete My Account" />
-      </form>
-    </div>
+          <label for="updateUsername">New Username</label>
+          <input
+            type="text"
+            class="input"
+            id="updateUsername"
+            name="updateUsername"
+            placeholder="New Username"
+            formControlName="newUsername"
+            required
+          />
+          <input type="submit" class="submitBtn" value="Update Username" />
+        </form>
+      </div>
 
-    <div class="logoutContainer">
-      <button (click)="onLogout()">Logout</button>
+      <!-- Update Password -->
+      <div class="form-group">
+        <h3>Update Password</h3>
+        <form
+          class="form"
+          [formGroup]="updatePasswordForm"
+          (ngSubmit)="onSubmit('password')"
+        >
+          <label for="oldPassword">Old Password</label>
+          <input
+            type="password"
+            class="input"
+            id="oldPassword"
+            name="oldPassword"
+            placeholder="Old Password"
+            formControlName="oldPassword"
+            required
+          />
+          <label for="newPassword">New Password</label>
+          <input
+            type="password"
+            class="input"
+            id="newPassword"
+            name="newPassword"
+            placeholder="New Password"
+            formControlName="newPassword"
+            required
+          />
+          <label for="confirmPassword">Confirm New Password</label>
+          <input
+            type="password"
+            class="input"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm New Password"
+            formControlName="confirmPassword"
+            required
+          />
+          <input type="submit" class="submitBtn" value="Update Password" />
+        </form>
+      </div>
+
+      <!-- Delete User -->
+      <div class="form-group">
+        <h3>Delete Account</h3>
+        <form
+          class="form"
+          [formGroup]="deleteUserForm"
+          (ngSubmit)="onSubmit('delete')"
+        >
+          <label for="username"
+            >Confirm account deletion by typing your username</label
+          >
+          <input
+            type="text"
+            class="input"
+            id="username"
+            name="username"
+            placeholder="Confirm Deletion"
+            formControlName="username"
+            required
+          />
+          <input type="submit" class="submitBtn" value="Delete My Account" />
+        </form>
+      </div>
+
+      <div class="logoutContainer">
+        <button (click)="onLogout()" class="submitBtn">Logout</button>
+      </div>
     </div>
   </div>
 </div>
