@@ -33,14 +33,13 @@
 .button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: var(--primary-color); /* Button color */
-  color: #ffffff; /* Text color */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners */
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .button:hover {
-  /* background-color: #318094; */
   background-color: var(--active-color);
 }
 
