@@ -8,6 +8,7 @@ import {
   UpdateUsernameDto,
   User,
 } from '../../modules/profile/profile.module';
+import { JwtService } from '../authentication/jwt/jwt.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ import {
 export class ApiService {
   private API_URL = 'https://localhost:7092/api/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwtService: JwtService) {}
 
   /** SPIRITS **/
   getSpirits(): Observable<Spirit[]> {
@@ -62,9 +63,17 @@ export class ApiService {
     id: number,
     updateUsernameDto: UpdateUsernameDto
   ): Observable<User> {
+    const headers = this.jwtService.getAuthorizationHeaders();
+
+    // Update payload to match expected DTO in backend
+    const transformedPayload = {
+      new_username: updateUsernameDto.newUsername,
+    };
+
     return this.http.patch<User>(
       `${this.API_URL}/users/update-username/${id}`,
-      updateUsernameDto
+      transformedPayload,
+      { headers: headers }
     );
   }
 
@@ -72,9 +81,24 @@ export class ApiService {
     id: number,
     updatePasswordDto: UpdatePasswordDto
   ): Observable<any> {
+    const headers = this.jwtService.getAuthorizationHeaders();
+
+    // Update payload to match expected DTO in backend
+    const transformedPayload = {
+      old_password: updatePasswordDto.oldPassword,
+      new_password: updatePasswordDto.newPassword,
+    };
+
+    console.log(transformedPayload);
+
     return this.http.patch<any>(
-      `${this.API_URL}/users/update-username/${id}`,
-      updatePasswordDto
+      `${this.API_URL}/users/update-password/${id}`,
+      transformedPayload,
+      { headers: headers }
     );
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.API_URL}/users/update-username/${id}`);
   }
 }

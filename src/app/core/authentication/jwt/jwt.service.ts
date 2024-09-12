@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 
@@ -17,6 +18,15 @@ export class JwtService {
     const token = this.getAuthToken();
 
     return token ? jwtDecode(token) : null;
+  }
+
+  getAuthorizationHeaders(): HttpHeaders {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getAuthToken()}`,
+      'Content-Type': 'application/json',
+    });
+
+    return headers;
   }
 
   getUserIdFromJwt(): string | null {

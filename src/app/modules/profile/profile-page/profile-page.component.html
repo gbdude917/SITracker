@@ -6,10 +6,11 @@
       <div class="form-group">
         <!-- Update Username -->
         <h3>Update Username</h3>
+        <app-error-message [message]="usernameErrorMessage" />
         <form
           class="form"
           [formGroup]="updateUsernameForm"
-          (ngSubmit)="onSubmit('username')"
+          (ngSubmit)="onUpdateUsername()"
         >
           <label for="updateUsername">New Username</label>
           <input
@@ -28,10 +29,11 @@
       <!-- Update Password -->
       <div class="form-group">
         <h3>Update Password</h3>
+        <app-error-message [message]="passwordErrorMessage" />
         <form
           class="form"
           [formGroup]="updatePasswordForm"
-          (ngSubmit)="onSubmit('password')"
+          (ngSubmit)="onUpdatePassword()"
         >
           <label for="oldPassword">Old Password</label>
           <input
@@ -70,10 +72,11 @@
       <!-- Delete User -->
       <div class="form-group">
         <h3>Delete Account</h3>
+        <app-error-message [message]="deleteErrorMessage" />
         <form
           class="form"
           [formGroup]="deleteUserForm"
-          (ngSubmit)="onSubmit('delete')"
+          (ngSubmit)="onDeleteAccount()"
         >
           <label for="username"
             >Confirm account deletion by typing your username</label
