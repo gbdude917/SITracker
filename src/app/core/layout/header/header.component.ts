@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthService } from '../authentication/auth/auth.service';
+import { AuthService } from '../../authentication/auth/auth.service';
 
 @Component({
   selector: 'app-header',

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
-import { HeaderComponent } from './core/header/header.component';
-import { FooterComponent } from './core/footer/footer.component';
+import { HeaderComponent } from './core/layout/header/header.component';
+import { FooterComponent } from './core/layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
