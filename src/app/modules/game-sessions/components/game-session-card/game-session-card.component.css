@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  height: 150px;
+  width: 70vw;
+
+  transition: box-shadow 0.3s ease; /* Add transition property */
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.container:hover {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.container:link,
+.container:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 150px;
+  width: 35%;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.contents {
+  display: flex;
+  width: 65%;
+  height: 100%;
+}
+
+.sessionNameContainer {
+  text-align: center;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sessionNameContainer h4 {
+  font-size: 1.2rem;
+}
+
+.playedOnContainer {
+  text-align: center;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    height: 225px;
+    min-width: 95vw;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    height: 225px;
+  }
+
+  .imageContainer {
+    height: 100%;
+    width: 70%;
+  }
+
+  .contents {
+    width: 100%;
+    height: 30%;
+  }
+
+  .sessionNameContainer {
+    height: fill;
+  }
+
+  .sessionNameContainer h4 {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .playedOnContainer {
+    font-size: 12px;
+  }
+}

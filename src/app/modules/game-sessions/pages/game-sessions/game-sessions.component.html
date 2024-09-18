@@ -1,1 +1,13 @@
-<p>game-sessions works!</p>
+<div class="container">
+  <div class="contentWrapper">
+    <div class="description">
+      <h1>My Game Sessions</h1>
+      <p>View your game sessions here.</p>
+    </div>
+    <div class="gameSessionsWrapper">
+      @for (gameSession of gameSessions; track gameSession.id) {
+      <app-game-session-card [gameSession]="gameSession" />
+      }
+    </div>
+  </div>
+</div>

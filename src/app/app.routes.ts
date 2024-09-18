@@ -11,6 +11,7 @@ import { AdversaryDetailsComponent } from './modules/adversaries/pages/adversary
 import { RegisterComponent } from './modules/auth/pages/register/register.component';
 import { authGuard } from './core/authentication/auth/auth.guard';
 import { ProfilePageComponent } from './modules/profile/profile-page/profile-page.component';
+import { GameSessionDetailsComponent } from './modules/game-sessions/pages/game-session-details/game-session-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,11 @@ export const routes: Routes = [
   {
     path: 'game-sessions',
     component: GameSessionsComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'game-sessions/:id',
+    component: GameSessionDetailsComponent,
     canActivate: [authGuard],
   },
   {

@@ -1,0 +1,19 @@
+<a [routerLink]="['/game-sessions', id]" class="container">
+  <div class="wrapper">
+    <div class="imageContainer">
+      <img class="image" [src]="spirit.image" alt="{{ spirit.name }}" />
+    </div>
+
+    <div class="contents">
+      <div class="sessionNameContainer">
+        <h4>{{ sessionName }}</h4>
+      </div>
+
+      <div class="playedOnContainer">
+        <span
+          ><p>Last Played: {{ playedOn }}</p></span
+        >
+      </div>
+    </div>
+  </div>
+</a>

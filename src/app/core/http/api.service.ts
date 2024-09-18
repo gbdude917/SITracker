@@ -9,6 +9,11 @@ import {
   User,
 } from '../../modules/profile/profile.module';
 import { JwtService } from '../authentication/jwt/jwt.service';
+import {
+  GameSession,
+  GameSessionDto,
+  GameSessionsResponse,
+} from '../../modules/game-sessions/game-session.module';
 
 @Injectable({
   providedIn: 'root',
@@ -101,4 +106,30 @@ export class ApiService {
   deleteUser(id: number): Observable<any> {
     return this.http.delete<any>(`${this.API_URL}/users/update-username/${id}`);
   }
+
+  /** GAME SESSIONS **/
+  getMyGameSessions(): Observable<any> {
+    const headers = this.jwtService.getAuthorizationHeaders();
+
+    return this.http.get<GameSessionsResponse>(
+      `${this.API_URL}/game-sessions/my-game-sessions`,
+      { headers: headers }
+    );
+  }
+
+  // getGameSessionById(id: number): Observable<any> {
+
+  // }
+
+  // createGameSession(createGameSessionDto: GameSessionDto): Observable<any> {
+
+  // }
+
+  // updateGameSession(id:number, updateGameSessionDto: GameSessionDto): Observable<any> {
+
+  // }
+
+  // deleteGameSession(id: number): Observable<any> {
+
+  // }
 }
