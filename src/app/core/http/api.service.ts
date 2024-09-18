@@ -117,9 +117,14 @@ export class ApiService {
     );
   }
 
-  // getGameSessionById(id: number): Observable<any> {
+  getGameSessionById(id: number): Observable<any> {
+    const headers = this.jwtService.getAuthorizationHeaders();
 
-  // }
+      return this.http.get<GameSession>(
+         `${this.API_URL}/game-sessions/${id}`,
+         { headers: headers}
+      )
+  }
 
   // createGameSession(createGameSessionDto: GameSessionDto): Observable<any> {
 
