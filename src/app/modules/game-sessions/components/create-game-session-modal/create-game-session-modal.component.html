@@ -1,0 +1,16 @@
+<div class="modal" [class.close]="!isModalOpen" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <!-- Prevent close on inner clicks -->
+    <h2>Create New Game Session</h2>
+    <!-- Add your form or input fields here -->
+    <form>
+      <label for="sessionName">Session Name:</label>
+      <input id="sessionName" type="text" />
+      <label for="description">Description:</label>
+      <textarea id="description"></textarea>
+      <button type="submit">Create</button>
+      <button type="button" (click)="onClose()">Close</button>
+      <!-- Close button -->
+    </form>
+  </div>
+</div>

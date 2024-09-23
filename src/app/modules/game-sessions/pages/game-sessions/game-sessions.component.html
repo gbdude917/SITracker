@@ -3,6 +3,7 @@
     <div class="description">
       <h1>My Game Sessions</h1>
       <p>View your game sessions here.</p>
+      <button (click)="onNewGameSession()">New Game Session</button>
     </div>
     <div class="gameSessionsWrapper">
       @for (gameSession of gameSessions; track gameSession.id) {
@@ -10,4 +11,15 @@
       }
     </div>
   </div>
+
+  <div
+    class="backdrop"
+    [class.close]="!isModalOpen()"
+    (click)="closeModal()"
+  ></div>
+
+  <app-create-game-session-modal
+    [isModalOpen]="isModalOpen()"
+    (closeModal)="closeModal()"
+  />
 </div>
